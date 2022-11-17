@@ -1,0 +1,111 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Scanner;  
+import java.io.*;
+import java.util.Arrays;
+import java.util.regex.*;
+import java.util.Scanner;
+
+class HelloWorld {
+    public static void main(String[] args) {
+        
+		int f1 = 100, f2 = 120, f3 = 160;
+		int d1 = 50, d2 = 50, d3 = 70;
+		int ad1 = 80, ad2 = 40, ad3 = 50;
+		int total = 0;
+		String food = "",drink = "",addon = "";
+        
+		Scanner scnnerobj = new Scanner(System.in);
+		System.out.println("Main Menu"+ '\n');
+		String Header[] = {"FOOD", "DRINKS'","ADD ONS"};
+		String b1[] = {"1. Chicken", "1. Coke'","1. Fries"};
+		String b2[] = {"2. Pork", "2. Coffee'","2. Ice Cream"};
+		String b3[] = {"3. Beef", "3. Juice'","3. Pie"};
+		
+		System.out.println(Arrays.toString(Header) + '\n'+ Arrays.toString(b1) + '\n'+ 
+		Arrays.toString(b2)+ '\n'+ Arrays.toString(b3));
+		
+		System.out.println("Select Order For FOOD");
+		String ordf1 = scnnerobj.nextLine(); 
+		System.out.println("Select Order For DRINK");
+		String ordd1 = scnnerobj.nextLine(); 
+		System.out.println("Select Order For ADD ON");
+		String ordad1 = scnnerobj.nextLine(); 
+		if(Pattern.matches("\\d+", ordf1) && Pattern.matches("\\d+", ordd1) && Pattern.matches("\\d+", ordad1))
+		{
+		    switch(ordf1)
+		    {
+		        case "1" : food = "CHICKEN";
+		        total = total + f1;
+		            break;
+		        case "2" : food = "PORK";
+		        total = total + f2;
+		            break;
+		        case "3": food = "BEEF";
+		        total = total + f3;
+		            break;
+		    }
+		    
+		    switch(ordd1)
+		    {
+		        case "1" : drink = "Coke";
+		        total = total + d1;
+		            break;
+		        case "2" : drink = "Coffee";
+		        total = total + d2;
+		            break;
+		        case "3": drink = "Juice";
+		        total = total + d2;
+		            break;
+		    }
+		    switch(ordad1)
+		    {
+		        case "1" : addon = "Fries";
+		        total = total + ad1;
+		            break;
+		        case "2" : addon = "Ice Cream";
+		        total = total + ad2;
+		            break;
+		        case "3": addon = "Pie";
+		        total = total + ad2;
+		            break;
+		    }
+		    
+		    System.out.println("your order is"  +'\n' + food+'\n' + drink+'\n' +addon +'\n');
+		    System.out.println("your Total payment is:" + Integer.toString(total)+'\n'+'\n');
+		    System.out.println("enter your payment bill");
+		    String payment = scnnerobj.nextLine(); 
+		    
+		    if(Integer.parseInt(payment) < total)
+		    {
+		        
+		    System.out.println("Payment not enough");
+		    }
+		    else
+		    {
+		        if(Integer.parseInt(payment) == total)
+		        {
+		            
+		        System.out.println("Payment is exact thank you for purchasing");
+		        }
+		        
+		        if(Integer.parseInt(payment) > total)
+		        {
+		            int change = Integer.parseInt(payment) - total;
+		        System.out.println("your change is : " + Integer.toString(change));
+		        System.out.println("Payment complete thank you for purchasing");
+		        }
+		    }
+		    
+		    
+		    
+		
+		}
+		else
+		{
+		    System.out.println("INVALID ORDER");
+		}
+		
+		
+    }
+}
